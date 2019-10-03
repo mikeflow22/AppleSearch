@@ -24,7 +24,11 @@ class SearchResultController {
     static func getMusicWith(searchText: String, completion: @escaping ([MusicSearchResult]) -> Void){
         var baseURL = URL(string:StringConstants.url)!
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        baseURL.appendPathComponent(StringConstants.searchComponent)
+        baseURL.appendPathComponent(StringConstants.searchComponent) //for whatever reason, for teaching purposes we are adding the search here, instead of putting it in the base url. Search is never going to change and it should BE in the base url. 
+        /*
+         ONLY INITIALIZE  YOUR URLCOMPONENTS AFTER THE URL IS SET UP AND ONLY NEEDS TO APPEND OR ADD QUERY ITEMS.
+         Initialize urlComponents of your base url. Because after that you will want to construct the url. URLcomponents help you add query items and components to the url so it makes no sense to do those before you enact urlcomponents.
+         */
         let searchTermQuery = URLQueryItem(name: StringConstants.termKey, value: searchText)
         let entityQuery = URLQueryItem(name: StringConstants.entityKey, value: StringConstants.musicTrack)
         urlComponents?.queryItems = [searchTermQuery, entityQuery]
