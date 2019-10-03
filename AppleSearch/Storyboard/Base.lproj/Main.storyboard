@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Search Results Table View Controller-->
         <scene sceneID="wGA-8n-WCI">
             <objects>
-                <tableViewController id="MWj-D0-TNZ" sceneMemberID="viewController">
+                <tableViewController id="MWj-D0-TNZ" customClass="SearchResultsTableViewController" customModule="AppleSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3cY-iH-aGm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,8 +35,8 @@
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6jA-Wp-yIk">
                                             <rect key="frame" x="0.0" y="69" width="398" height="29"/>
                                             <segments>
-                                                <segment title="First"/>
-                                                <segment title="Second"/>
+                                                <segment title="Music"/>
+                                                <segment title="App"/>
                                             </segments>
                                         </segmentedControl>
                                     </subviews>
@@ -51,12 +51,46 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itunesCell" id="AbE-ju-YYo">
-                                <rect key="frame" x="0.0" y="141" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itunesCell" rowHeight="150" id="AbE-ju-YYo">
+                                <rect key="frame" x="0.0" y="141" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AbE-ju-YYo" id="7S6-kT-905">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I0m-af-wnq">
+                                            <rect key="frame" x="28" y="11" width="234" height="128"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mol-gd-rEv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="234" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndQ-Fm-AR9">
+                                                    <rect key="frame" x="0.0" y="28.5" width="234" height="99.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yaH-SO-NmR">
+                                            <rect key="frame" x="270" y="11" width="128" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="128" id="KwQ-PV-BuR"/>
+                                                <constraint firstAttribute="width" secondItem="yaH-SO-NmR" secondAttribute="height" multiplier="1:1" id="cqY-WH-v89"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yaH-SO-NmR" firstAttribute="leading" secondItem="I0m-af-wnq" secondAttribute="trailing" constant="8" id="6cM-Am-DVg"/>
+                                        <constraint firstItem="I0m-af-wnq" firstAttribute="top" secondItem="yaH-SO-NmR" secondAttribute="top" id="9dn-h0-hQt"/>
+                                        <constraint firstAttribute="trailing" secondItem="yaH-SO-NmR" secondAttribute="trailing" constant="16" id="K3h-3z-DOZ"/>
+                                        <constraint firstItem="I0m-af-wnq" firstAttribute="centerY" secondItem="7S6-kT-905" secondAttribute="centerY" id="XAN-5l-wBs"/>
+                                        <constraint firstItem="I0m-af-wnq" firstAttribute="leading" secondItem="7S6-kT-905" secondAttribute="leadingMargin" constant="8" id="jTm-Nf-4tA"/>
+                                        <constraint firstItem="yaH-SO-NmR" firstAttribute="centerY" secondItem="7S6-kT-905" secondAttribute="centerY" id="je4-Md-s6E"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
