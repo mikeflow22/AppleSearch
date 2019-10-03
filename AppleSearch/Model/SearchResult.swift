@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieSearchResult: Codable {
+struct MusicSearchDictionary: Codable {
     let results: [MusicSearchResult]
 }
 
@@ -16,6 +16,10 @@ struct MusicSearchResult: Codable {
     let artistName: String
     let trackName: String
     let artworkUrl100: String?
+}
+
+struct AppSearchDictionary: Codable {
+    let results: [AppSearchResult]
 }
 
 struct AppSearchResult: Codable {
