@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1B290B2E23465529004C40FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B290B2D23465529004C40FC /* AppDelegate.swift */; };
-		1B290B3023465529004C40FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B290B2F23465529004C40FC /* ViewController.swift */; };
 		1B290B3323465529004C40FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B290B3123465529004C40FC /* Main.storyboard */; };
 		1B290B352346552A004C40FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B290B342346552A004C40FC /* Assets.xcassets */; };
 		1B290B382346552A004C40FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B290B362346552A004C40FC /* LaunchScreen.storyboard */; };
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		1B290B2A23465529004C40FC /* AppleSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B290B2D23465529004C40FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B290B2F23465529004C40FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1B290B3223465529004C40FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1B290B342346552A004C40FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B290B372346552A004C40FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,14 +52,53 @@
 		1B290B2C23465529004C40FC /* AppleSearch */ = {
 			isa = PBXGroup;
 			children = (
+				1B290B402346566B004C40FC /* Storyboard */,
+				1B290B4323465686004C40FC /* Model Controller */,
+				1B290B422346567A004C40FC /* View Controllers */,
+				1B290B4123465674004C40FC /* Model */,
+				1B290B3F2346565E004C40FC /* Resources */,
+			);
+			path = AppleSearch;
+			sourceTree = "<group>";
+		};
+		1B290B3F2346565E004C40FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				1B290B2D23465529004C40FC /* AppDelegate.swift */,
-				1B290B2F23465529004C40FC /* ViewController.swift */,
-				1B290B3123465529004C40FC /* Main.storyboard */,
 				1B290B342346552A004C40FC /* Assets.xcassets */,
 				1B290B362346552A004C40FC /* LaunchScreen.storyboard */,
 				1B290B392346552A004C40FC /* Info.plist */,
 			);
-			path = AppleSearch;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1B290B402346566B004C40FC /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1B290B3123465529004C40FC /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		1B290B4123465674004C40FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B290B422346567A004C40FC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1B290B4323465686004C40FC /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +172,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B290B3023465529004C40FC /* ViewController.swift in Sources */,
 				1B290B2E23465529004C40FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4W7EQ4E4R;
-				INFOPLIST_FILE = AppleSearch/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AppleSearch/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4W7EQ4E4R;
-				INFOPLIST_FILE = AppleSearch/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AppleSearch/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
