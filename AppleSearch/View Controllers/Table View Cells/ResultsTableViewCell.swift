@@ -9,16 +9,43 @@
 import UIKit
 
 class ResultsTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+  
+    var musicItem: MusicSearchResult? {
+        didSet {
+            guard let item = musicItem else { return }
+            titleLabel.text = item.trackName
+            descriptionLabel.text = item.artistName
+            myImageView.image = nil //doesn't reuse an image if there is no image for scrolling purposes.
+            
+            SearchResultController.getMusicImageFor(itemFromModel: item) { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    self.myImageView.image = image
+                }
+            }
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    
+    var appItem: AppSearchResult? {
+        didSet {
+            guard let item = appItem else { return }
+            titleLabel.text = item.trackName
+            descriptionLabel.text = item.description
+            myImageView.image = nil //doesn't reuse an image if there is no image for scrolling purposes.
+          
+             SearchResultController.getAppImageFor(itemFromModel: item) { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    self.myImageView.image = image
+                }
+            }
+        }
     }
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var myImageView: UIImageView!
+    
 
 }

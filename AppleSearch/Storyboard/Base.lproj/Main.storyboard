@@ -38,6 +38,9 @@
                                                 <segment title="Music"/>
                                                 <segment title="App"/>
                                             </segments>
+                                            <connections>
+                                                <action selector="segmenedControlValueChanged:" destination="MWj-D0-TNZ" eventType="valueChanged" id="3iM-y2-PPd"/>
+                                            </connections>
                                         </segmentedControl>
                                     </subviews>
                                 </stackView>
@@ -51,7 +54,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itunesCell" rowHeight="150" id="AbE-ju-YYo">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itunesCell" rowHeight="150" id="AbE-ju-YYo" customClass="ResultsTableViewCell" customModule="AppleSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="141" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AbE-ju-YYo" id="7S6-kT-905">
@@ -92,6 +95,11 @@
                                         <constraint firstItem="yaH-SO-NmR" firstAttribute="centerY" secondItem="7S6-kT-905" secondAttribute="centerY" id="je4-Md-s6E"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="ndQ-Fm-AR9" id="2qv-wa-r4j"/>
+                                    <outlet property="myImageView" destination="yaH-SO-NmR" id="Mc6-2R-zY3"/>
+                                    <outlet property="titleLabel" destination="Mol-gd-rEv" id="77f-FJ-95i"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -99,6 +107,10 @@
                             <outlet property="delegate" destination="MWj-D0-TNZ" id="iZg-D4-EWg"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="0L7-RN-zMQ" id="Tad-xr-hJg"/>
+                        <outlet property="segmentedControl" destination="6jA-Wp-yIk" id="wUH-Ap-IVp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fA-60-AkG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

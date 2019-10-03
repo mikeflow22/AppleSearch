@@ -61,7 +61,7 @@ class SearchResultController {
         }.resume()
     }
     
-    static func getMusicWith(searchText: String, completion: @escaping ([AppSearchResult]) -> Void){
+    static func getAppWith(searchText: String, completion: @escaping ([AppSearchResult]) -> Void){
         var baseURL = URL(string:StringConstants.url)!
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         baseURL.appendPathComponent(StringConstants.searchComponent)
