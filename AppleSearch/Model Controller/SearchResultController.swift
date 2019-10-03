@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct StringConstants {
     fileprivate static let url = "https://itunes.apple.com"
@@ -17,7 +18,9 @@ struct StringConstants {
     fileprivate static let softwareKey = "software"
 }
 
+
 class SearchResultController {
+    
     static func getMusicWith(searchText: String, completion: @escaping ([MusicSearchResult]) -> Void){
         var baseURL = URL(string:StringConstants.url)!
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -58,7 +61,6 @@ class SearchResultController {
         }.resume()
     }
     
-    
     static func getMusicWith(searchText: String, completion: @escaping ([AppSearchResult]) -> Void){
         var baseURL = URL(string:StringConstants.url)!
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
@@ -98,7 +100,51 @@ class SearchResultController {
                 return
             }
             }.resume()
+        }
     
+    static func getMusicImageFor(itemFromModel: MusicSearchResult, completion: @escaping (UIImage?) -> Void){
+        
+        guard let artworkURL = itemFromModel.artworkUrl100, let imageURLAsString = URL(string: artworkURL) else { print("item did not have an image url that worked")  ; completion(nil) ;  return }
+        
+        URLSession.shared.dataTask(with: imageURLAsString) { (data, _, error) in
+            if let error = error {
+                print("Error in the data task: \(error) //// \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error unwrapping data for image")
+                completion(nil)
+                return
+            }
+            
+            let image = UIImage(data: data)
+            completion(image)
+        }.resume()
     }
+    
+    static func getAppImageFor(itemFromModel: AppSearchResult, completion: @escaping (UIImage?) -> Void){
+        
+        guard let artworkURL = itemFromModel.artworkUrl100, let imageURLAsString = URL(string: artworkURL) else { print("item did not have an image url that worked")  ; completion(nil) ;  return }
+        
+        URLSession.shared.dataTask(with: imageURLAsString) { (data, _, error) in
+            if let error = error {
+                print("Error in the data task: \(error) //// \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error unwrapping data for image")
+                completion(nil)
+                return
+            }
+            
+            let image = UIImage(data: data)
+            completion(image)
+            }.resume()
+    }
+    
     
 }
